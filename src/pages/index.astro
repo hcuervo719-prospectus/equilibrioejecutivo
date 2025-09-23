@@ -5,23 +5,263 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Equilibrio Ejecutivo</title>
+    <title>Equilibrio Ejecutivo — Serie de productividad para ejecutivos</title>
+    <meta name="description" content="Equilibrio Ejecutivo: 6 episodios basados en neurociencia para reducir burnout y aumentar resultados. Accede hoy como Pionero." />
     <style>
-      :root{--bg:#0f1113;--accent:#E0CCFA;--text:#e6e6e6}
+      :root{
+        --blue:#1B365D;
+        --gold:#F4D03F;
+        --muted:#6B7280;
+        --bg:#ffffff;
+        --card:#f7f8fb;
+        --text:#0f1724;
+      }
       *{box-sizing:border-box}
-      body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh}
-      .page-container{max-width:780px;padding:32px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 6px 18px rgba(0,0,0,0.5);text-align:center}
-      .page-title{font-size:28px;margin:0 0 8px;color:var(--accent)}
-      .page-subtitle{margin:0 0 16px;color:#cfcfe0}
-      .status-badge{display:inline-block;padding:8px 12px;border-radius:8px;background:rgba(224,204,250,0.08);color:var(--accent);font-weight:600}
-      @media (max-width:600px){.page-container{padding:20px}}
+      html,body{height:100%}
+      body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      .container{max-width:980px;margin:0 auto;padding:20px}
+      header.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+      .brand{display:flex;align-items:center;gap:12px}
+      .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(180deg,var(--blue),#153150);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+      .site-title{font-size:16px;font-weight:700;color:var(--blue)}
+
+      .hero{background:linear-gradient(180deg,rgba(27,54,93,0.04),rgba(27,54,93,0.02));padding:28px;border-radius:12px;margin:12px 0}
+      .hero-inner{display:flex;flex-direction:column;gap:18px}
+      .headline{font-size:22px;font-weight:800;color:var(--blue);margin:0}
+      .lead{font-size:15px;color:var(--muted);margin:0}
+      .metrics{display:flex;gap:12px;flex-wrap:wrap}
+      .pill{background:var(--card);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--text)}
+
+      .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+      .btn{padding:12px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+      .btn-primary{background:var(--gold);color:var(--blue);box-shadow:0 6px 18px rgba(244,208,63,0.12)}
+      .btn-primary:hover{transform:translateY(-2px)}
+      .btn-outline{background:transparent;border:1px solid rgba(11,33,62,0.08);color:var(--blue)}
+
+      .section{margin:22px 0;padding:18px;border-radius:10px}
+      .section-title{font-size:18px;color:var(--blue);margin:0 0 8px}
+      .problem-list{display:flex;flex-direction:column;gap:10px}
+      .problem-item{background:#fff;border-left:4px solid #ffd;box-shadow:0 6px 12px rgba(11,33,62,0.04);padding:12px;border-radius:8px}
+
+      .episodes-grid{display:flex;flex-direction:column;gap:10px}
+      .episode{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(180deg,#fff, #fbfcfe);padding:12px;border-radius:8px}
+      .episode .idx{width:36px;height:36px;border-radius:8px;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+      .pricing-cards{display:flex;flex-direction:column;gap:12px}
+      .card{background:linear-gradient(180deg,#ffffff,var(--card));padding:16px;border-radius:12px;border:1px solid rgba(11,33,62,0.04)}
+      .price{font-size:20px;font-weight:800;color:var(--blue)}
+      .price-sub{color:var(--muted);font-size:13px}
+      .badge-limited{background:var(--gold);color:var(--blue);padding:6px 8px;border-radius:8px;font-weight:700}
+
+      .testimonials{display:flex;flex-direction:column;gap:12px}
+      .testimonial{background:#fff;padding:14px;border-radius:10px;box-shadow:0 8px 20px rgba(11,33,62,0.04)}
+      .quote{font-style:italic;color:var(--muted)}
+
+      .faq-list{display:flex;flex-direction:column;gap:8px}
+      .faq-item{padding:12px;background:var(--card);border-radius:10px}
+
+      footer.site-footer{margin-top:20px;padding:18px;border-radius:10px;background:#0b1b33;color:#f6f7fa}
+      .guarantee{display:flex;flex-direction:column;gap:8px}
+
+      .newsletter{display:flex;gap:8px;flex-wrap:wrap}
+      .input{padding:10px;border-radius:8px;border:1px solid rgba(11,33,62,0.08);min-width:200px}
+
+      @media(min-width:900px){
+        .hero-inner{flex-direction:row;align-items:center;justify-content:space-between}
+        .headline{font-size:32px}
+        .episodes-grid{flex-direction:row}
+        .pricing-cards{flex-direction:row}
+        .testimonials{flex-direction:row}
+      }
     </style>
   </head>
   <body>
-    <main class="page-container">
-      <h1 class="page-title">App lista</h1>
-      <p class="page-subtitle">La aplicación se ha inicializado correctamente y ahora responde en /</p>
-      <div class="status-badge">Estado: operativo</div>
-    </main>
+    <div class="container">
+      <header class="site-header">
+        <div class="brand">
+          <div class="logo">EE</div>
+          <div class="site-title">Equilibrio Ejecutivo</div>
+        </div>
+        <nav>
+          <button class="btn btn-outline" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Comprar</button>
+        </nav>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-inner">
+          <div style="flex:1;min-width:220px">
+            <h1 id="hero-heading" class="headline">Menos horas. Más impacto: supera el burnout ejecutivo con estrategias basadas en neurociencia</h1>
+            <p class="lead">Serie de 6 episodios diseñados para ejecutivos que necesitan resultados medibles: 210 minutos de herramientas prácticas respaldadas por psicología organizacional.</p>
+            <div class="metrics">
+              <div class="pill">6 episodios • 210 min</div>
+              <div class="pill">Basado en neurociencia</div>
+              <div class="pill">Herramientas aplicables desde el día 1</div>
+            </div>
+            <div class="cta-row">
+              <button class="btn btn-primary" id="buy-now">Comprar ahora — Pioneros $29</button>
+              <button class="btn btn-outline" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">Preguntas frecuentes</button>
+            </div>
+            <p style="margin-top:8px;color:var(--muted);font-size:13px">Plazas Pioneros limitadas — precio especial por tiempo limitado.</p>
+          </div>
+          <div style="width:220px;display:flex;flex-direction:column;gap:10px;align-items:center">
+            <div style="width:220px;height:140px;border-radius:10px;background:linear-gradient(180deg,#eaf1ff, #fff);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(27,54,93,0.06);">
+              <div style="text-align:center;padding:12px">
+                <div style="font-weight:800;color:var(--blue);font-size:18px">Transformación Ejecutiva</div>
+                <div style="color:var(--muted);font-size:13px">Resultados en semanas</div>
+              </div>
+            </div>
+            <div style="text-align:center;color:var(--muted);font-size:13px">Incluye recursos descargables y hoja de ruta para aplicar aprendizajes.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="problema" aria-labelledby="problema-title">
+        <h2 id="problema-title" class="section-title">El problema</h2>
+        <div class="problem-list">
+          <div class="problem-item"><strong>Trabajar más no equivale a producir más.</strong> Ejecutivos gastan tiempo en reuniones y tareas reactivas que no generan ROI.</div>
+          <div class="problem-item"><strong>Decisiones bajo fatiga.</strong> El agotamiento reduce la calidad estratégica y aumenta el riesgo organizacional.</div>
+          <div class="problem-item"><strong>Falta de herramientas aplicables.</strong> Muchas soluciones son teóricas; aquí ofrecemos pasos claros y aplicables.</div>
+        </div>
+      </section>
+
+      <section class="section" id="solucion" aria-labelledby="solucion-title">
+        <h2 id="solucion-title" class="section-title">La solución: 6 episodios basados en ciencia</h2>
+        <p style="color:var(--muted)">Cada episodio combina evidencia en neurociencia y psicología organizacional con plantillas y acciones a implementar. Total: 210 minutos.</p>
+        <div class="episodes-grid">
+          <div class="episode card"><div class="idx">1</div><div><strong>Diagnóstico ejecutivo</strong><div class="price-sub">Identifica pérdidas de tiempo y puntos clave de intervención</div></div></div>
+          <div class="episode card"><div class="idx">2</div><div><strong>Gestión de atención</strong><div class="price-sub">Técnicas para enfocar la toma de decisiones críticas</div></div></div>
+          <div class="episode card"><div class="idx">3</div><div><strong>Reestructuración de reuniones</strong><div class="price-sub">Convierte reuniones en resultados medibles</div></div></div>
+          <div class="episode card"><div class="idx">4</div><div><strong>Líderes resilientes</strong><div class="price-sub">Estrategias para mantener rendimiento bajo presión</div></div></div>
+          <div class="episode card"><div class="idx">5</div><div><strong>Delegación efectiva</strong><div class="price-sub">Aumenta la capacidad del equipo sin microgestión</div></div></div>
+          <div class="episode card"><div class="idx">6</div><div><strong>Roadmap de implementación</strong><div class="price-sub">Plan de 30/60/90 días para generar ROI</div></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="pricing" aria-labelledby="pricing-title">
+        <h2 id="pricing-title" class="section-title">Precios</h2>
+        <div class="pricing-cards">
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="price">$29 <span style="font-size:14px;font-weight:700;color:var(--muted)">USD</span></div>
+                <div class="price-sub">Pioneros — cupos limitados</div>
+              </div>
+              <div class="badge-limited">PIONEROS</div>
+            </div>
+            <p style="color:var(--muted)">Acceso completo a los 6 episodios + materiales descargables. Precio exclusivo para primeros inscritos.</p>
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn btn-primary pay-button" data-provider="paypal" data-amount="29">Pagar con PayPal</button>
+              <button class="btn btn-primary pay-button" data-provider="mercadopago" data-amount="29">Pagar con Mercado Pago</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="price">$49 <span style="font-size:14px;font-weight:700;color:var(--muted)">USD</span></div>
+                <div class="price-sub">Estándar — acceso futuro</div>
+              </div>
+              <div style="font-weight:700;color:var(--muted)">Mejor valor</div>
+            </div>
+            <p style="color:var(--muted)">Incluye todo el contenido. Mejor opción para equipos y compras posteriores.</p>
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn btn-primary pay-button" data-provider="paypal" data-amount="49">Pagar con PayPal</button>
+              <button class="btn btn-primary pay-button" data-provider="mercadopago" data-amount="49">Pagar con Mercado Pago</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="testimonios" aria-labelledby="testimonios-title">
+        <h2 id="testimonios-title" class="section-title">Testimoniales</h2>
+        <div class="testimonials">
+          <div class="testimonial">
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#e6eefc;display:flex;align-items:center;justify-content:center;color:var(--blue);font-weight:800">AL</div><div><strong>Alejandro, CEO</strong><div style="color:var(--muted);font-size:13px">"Reduje reuniones improductivas un 40% y recuperé horas estratégicas cada semana."</div></div></div>
+          </div>
+          <div class="testimonial">
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#fff4db;display:flex;align-items:center;justify-content:center;color:#9b6a00;font-weight:800">MB</div><div><strong>María, CFO</strong><div style="color:var(--muted);font-size:13px">"Implementamos el roadmap y mejoramos la calidad de decisión financiera en 30 días."</div></div></div>
+          </div>
+          <div class="testimonial">
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#eef7ee;display:flex;align-items:center;justify-content:center;color:#0f6a2d;font-weight:800">JR</div><div><strong>Juan, VP Operaciones</strong><div style="color:var(--muted);font-size:13px">"Equipo más enfocado y menor rotación gracias a prácticas de resiliencia."</div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="section-title">Preguntas frecuentes</h2>
+        <div class="faq-list">
+          <div class="faq-item"><strong>¿A quién está dirigido?</strong><div style="color:var(--muted)">Ejecutivos y líderes con responsabilidad estratégica que buscan resultados rápidos y medibles.</div></div>
+          <div class="faq-item"><strong>¿Qué soporte incluye?</strong><div style="color:var(--muted)">Materiales descargables, plantillas y una hoja de ruta de implementación.</div></div>
+          <div class="faq-item"><strong>¿Hay garantía?</strong><div style="color:var(--muted)">Garantía de devolución de 14 días si no ves valor aplicado.</div></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="newsletter-title">
+        <h2 id="newsletter-title" class="section-title">Recibe una muestra gratis</h2>
+        <p style="color:var(--muted)">Déjanos tu email y te enviamos el primer episodio y una checklist ejecutiva.</p>
+        <form id="newsletter" class="newsletter" onsubmit="return false">
+          <input class="input" type="email" id="email" placeholder="tu@empresa.com" required />
+          <button class="btn btn-primary" id="subscribe">Enviar</button>
+          <div id="subscribe-msg" style="width:100%;color:var(--muted);font-size:13px"></div>
+        </form>
+      </section>
+
+      <footer class="site-footer">
+        <div class="container" style="padding:0">
+          <div class="guarantee">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+              <div>
+                <div style="font-weight:800">Garantía de satisfacción 14 días</div>
+                <div style="color:#cbd5e1;font-size:13px">Si no obtienes valor implementable, te devolvemos el dinero.</div>
+              </div>
+              <div style="text-align:right;color:#cbd5e1;font-size:13px">© {new Date().getFullYear()} Equilibrio Ejecutivo</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module">
+      const subscribeForm = document.getElementById('newsletter');
+      const emailInput = document.getElementById('email');
+      const msg = document.getElementById('subscribe-msg');
+      document.getElementById('buy-now').addEventListener('click', ()=>{document.getElementById('pricing').scrollIntoView({behavior:'smooth'})});
+
+      subscribeForm.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const email = emailInput.value.trim();
+        if(!email) return;
+        try{
+          msg.textContent = 'Enviando...';
+          const res = await fetch('/api/subscribe', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});
+          if(res.ok){msg.textContent = '¡Gracias! Revisa tu correo para el primer episodio.';emailInput.value='';}
+          else{msg.textContent = 'Hubo un error al enviar. Intenta nuevamente.'}
+        }catch(err){msg.textContent = 'Error de red. Intenta más tarde.'}
+      });
+
+      document.querySelectorAll('.pay-button').forEach(btn=>{
+        btn.addEventListener('click', (e)=>{
+          const provider = btn.dataset.provider;
+          const amount = btn.dataset.amount;
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({event:'initiate_payment',provider,amount});
+          if(provider==='paypal'){
+            window.open('https://www.paypal.com/pay?amount='+amount,'_blank');
+          } else if(provider==='mercadopago'){
+            window.open('https://www.mercadopago.com/checkout?amount='+amount,'_blank');
+          }
+        })
+      });
+
+      (function initAnalytics(){
+        if(typeof window.GA_MEASUREMENT_ID==='string' && window.GA_MEASUREMENT_ID.length>0){
+          const s=document.createElement('script');s.async=true;s.src=`https://www.googletagmanager.com/gtag/js?id=${window.GA_MEASUREMENT_ID}`;document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+          gtag('config', window.GA_MEASUREMENT_ID);
+        }
+      })();
+    </script>
   </body>
 </html>
