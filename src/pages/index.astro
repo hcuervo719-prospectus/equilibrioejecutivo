@@ -27,8 +27,22 @@
       }catch(e){/* ignore in environments where customElements not available */}
     </script>
 
-    <!-- PayPal SDK (for hosted buttons) -->
-    <script src="https://www.paypal.com/sdk/js?client-id=BAATYrZqOfTQ0RLR0jkKZF2yvIJmyfld8IBBqqhFF6oAa-CpkXbrqjKyZpblietfhlH6ECnzwVRjsld_VA&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+    <!-- PayPal SDK (loaded from env PUBLIC_PAYPAL_CLIENT_ID) -->
+    <script>
+      (function(){
+        try{
+          const clientId = import.meta.env.PUBLIC_PAYPAL_CLIENT_ID || "BAATYrZqOfTQ0RLR0jkKZF2yvIJmyfld8IBBqqhFF6oAa-CpkXbrqjKyZpblietfhlH6ECnzwVRjsld_VA";
+          const src = `https://www.paypal.com/sdk/js?client-id=${clientId}&components=hosted-buttons&disable-funding=venmo&currency=USD`;
+          const existing = document.querySelector(`script[src^="https://www.paypal.com/sdk/js"]`);
+          if(!existing){
+            const s = document.createElement('script');
+            s.src = src;
+            s.async = true;
+            document.head.appendChild(s);
+          }
+        }catch(e){console.warn('Could not load PayPal SDK via env', e)}
+      })();
+    </script>
     <style>
       :root{
         --blue:#1B365D;
