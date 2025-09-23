@@ -74,17 +74,46 @@
 
           <hr style="margin:16px 0" />
 
-          <form name="datos-cliente" method="POST" data-netlify="true" netlify>
-            <input type="hidden" name="form-name" value="datos-cliente" />
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <label>Nombre completo<input class="input" type="text" name="nombre" required /></label>
-              <label>Correo electrónico<input class="input" type="email" name="email" required /></label>
-              <label>Empresa (opcional)<input class="input" type="text" name="empresa" /></label>
-              <label>Teléfono (opcional)<input class="input" type="tel" name="telefono" /></label>
-              <label>Comentarios adicionales<textarea class="input" name="comentarios" rows="3"></textarea></label>
-              <button class="btn btn-primary" type="submit">Enviar mis datos</button>
-            </div>
-          </form>
+          <div class="confirmation-form">
+  <h3>Completa tus datos para recibir actualizaciones</h3>
+  <p>Te mantendremos informado sobre el progreso de la serie y te notificaremos antes del estreno.</p>
+
+  <form name="reserva-confirmada" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="reserva-confirmada">
+
+    <div class="form-group">
+      <label for="email">Email de confirmación:</label>
+      <input type="email" id="email" name="email" required placeholder="tu.email@empresa.com">
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+    </div>
+
+    <div class="form-group">
+      <label for="empresa">Empresa y cargo actual:</label>
+      <input type="text" id="empresa" name="empresa" placeholder="Empresa - CEO/Director/Gerente">
+    </div>
+
+    <div class="form-group">
+      <label for="whatsapp">WhatsApp (opcional - para soporte directo):</label>
+      <input type="tel" id="whatsapp" name="whatsapp" placeholder="+57 300 123 4567">
+    </div>
+
+    <div class="form-group">
+      <label for="expectativas">¿Qué esperas lograr con Equilibrio Ejecutivo?</label>
+      <textarea id="expectativas" name="expectativas" rows="3" placeholder="Ejemplo: Reducir estrés laboral, mejorar toma de decisiones..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Confirmar Datos</button>
+  </form>
+
+  <p class="form-note">
+    <strong>Recordatorio:</strong> El primer episodio estará disponible el 23 de octubre de 2025.
+    Te enviaremos tu enlace de acceso 48 horas antes del estreno.
+  </p>
+</div>
 
           <div style="margin-top:12px;display:flex;gap:10px">
             <button class="btn" onclick="location.href='/episodios'">Ver episodios</button>
