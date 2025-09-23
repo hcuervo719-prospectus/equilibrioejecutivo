@@ -1,5 +1,4 @@
 ---
----
 <!doctype html>
 <html lang="es">
   <head>
@@ -113,7 +112,7 @@
       }
 
       .launch-banner{background:linear-gradient(90deg,var(--gold),#eecf5a);color:var(--blue);padding:12px;border-radius:10px;text-align:center;font-weight:800;margin:10px 0}
-.launch-banner{background:linear-gradient(90deg,var(--gold),#eecf5a);color:var(--blue);padding:12px;border-radius:10px;text-align:center;font-weight:800;margin:10px 0}
+    .launch-banner{background:linear-gradient(90deg,var(--gold),#eecf5a);color:var(--blue);padding:12px;border-radius:10px;text-align:center;font-weight:800;margin:10px 0}
       /* Hero layout for vertical image */
       .hero-media{display:flex;justify-content:center;align-items:flex-start}
       .hero-card{width:100%;max-width:480px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfcfe);box-shadow:0 8px 18px rgba(27,54,93,0.06);overflow:hidden}
@@ -131,6 +130,16 @@
         .hero-actions{flex:1;align-items:flex-start;margin-top:0}
         .hero-actions .small-indicator{margin-top:6px}
       }
+
+      /* New utility classes to replace inline styles */
+      .pricing-card-inner{display:flex;flex-direction:column;gap:12px}
+      .pricing-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+      .pricing-final{text-align:right}
+      .final-label{font-size:14px;color:var(--muted)}
+      .price-currency{font-size:14px;font-weight:700;color:var(--muted)}
+      .pricing-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+      .pricing-deadline{color:var(--muted);font-size:13px}
+      .hero-meta{margin-top:8px;color:var(--muted);font-size:14px}
     </style>
   </head>
   <body>
@@ -142,7 +151,6 @@
         </div>
         <nav>
           <a class="btn btn-outline" href="/episodios">Contenido de la serie</a>
-          <button class="btn btn-outline" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Reserva tu cupo</button>
         </nav>
       </header>
 
@@ -157,16 +165,16 @@
           </div>
 
           <aside class="hero-actions" aria-label="Reservas y acciones">
-            <button class="btn btn-primary" id="reserve-now">Reserva tu cupo - Pioneros $29</button>
+            <button class="btn btn-primary" id="reserve-now" onclick="location.href='/checkout?plan=pioneros&amount=29'">Reserva tu cupo - Pioneros $29</button>
             <div class="small-indicator">50 cupos restantes</div>
-            <div style="margin-top:8px;color:var(--muted);font-size:14px">Estreno: <strong>23 de octubre de 2025</strong></div>
+            <div class="hero-meta">Estreno: <strong>23 de octubre de 2025</strong></div>
           </aside>
         </div>
       </section>
 
       <section class="social-proof" aria-label="Social proof">
         <div class="section">
-          <div style="text-align:center;font-weight:800;color:var(--blue);font-size:16px">Validado por 500+ ejecutivos que incrementaron productividad 40%</div>
+          <div class="validate-text">Validado por 500+ ejecutivos que incrementaron productividad 40%</div>
         </div>
       </section>
 
@@ -181,7 +189,7 @@
 
       <section class="section" id="solucion" aria-labelledby="solucion-title">
         <h2 id="solucion-title" class="section-title">La solución: 6 episodios basados en ciencia</h2>
-        <p style="color:var(--muted)">Cada episodio combina evidencia en neurociencia y psicología organizacional con plantillas y acciones a implementar. Total: 210 minutos.</p>
+        <p class="muted-text">Cada episodio combina evidencia en neurociencia y psicología organizacional con plantillas y acciones a implementar. Total: 210 minutos.</p>
         <div class="episodes-grid">
           <div class="episode card"><div class="idx">1</div><div><strong>Diagnóstico ejecutivo</strong><div class="price-sub">Identifica pérdidas de tiempo y puntos clave de intervención</div></div></div>
           <div class="episode card"><div class="idx">2</div><div><strong>Gestión de atención</strong><div class="price-sub">Técnicas para enfocar la toma de decisiones críticas</div></div></div>
@@ -194,43 +202,22 @@
 
       <section class="section" id="pricing" aria-labelledby="pricing-title">
         <h2 id="pricing-title" class="section-title">Precios</h2>
-        <div class="card" style="display:flex;flex-direction:column;gap:12px">
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div class="card pricing-card-inner">
+          <div class="pricing-header">
             <div>
-              <div style="font-size:14px;color:var(--muted)">Pioneros (Preventa)</div>
-              <div class="price">$29 <span style="font-size:14px;font-weight:700;color:var(--muted)">USD</span></div>
+              <div class="muted-text-small">Pioneros (Preventa)</div>
+              <div class="price">$29 <span class="price-currency">USD</span></div>
             </div>
-            <div style="text-align:right">
-              <div style="font-size:14px;color:var(--muted)">Precio final</div>
-              <div class="price">$49 <span style="font-size:14px;font-weight:700;color:var(--muted)">USD</span></div>
+            <div class="pricing-final">
+              <div class="final-label">Precio final</div>
+              <div class="price">$49 <span class="price-currency">USD</span></div>
             </div>
           </div>
 
-          <p style="color:var(--muted)">Acceso completo a los 6 episodios, materiales y hoja de ruta. Preventa limitada; el precio final será $49.</p>
+          <p class="muted-text">Acceso completo a los 6 episodios, materiales y hoja de ruta. Preventa limitada; el precio final será $49.</p>
 
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-            <button class="btn btn-primary" id="secure-pioneer">Asegurar acceso pionero</button>
-            <div style="color:var(--muted);font-size:13px">Fecha límite: <strong>23 de octubre de 2025</strong></div>
-          </div>
-
-          <div style="margin-top:12px" id="pioneer-paypal-area">
-            <div id="paypal-container-HTRDZXWEBFE9S"></div>
-            <script>
-              (function renderPaypal29(){
-                const id = 'paypal-container-HTRDZXWEBFE9S';
-                const hostedId = 'HTRDZXWEBFE9S';
-                function render(){
-                  if(window.paypal && paypal.HostedButtons){
-                    paypal.HostedButtons({ hostedButtonId: hostedId }).render('#'+id);
-                    return true;
-                  }
-                  return false;
-                }
-                if(!render()){
-                  const i = setInterval(()=>{ if(render()) clearInterval(i); }, 250);
-                }
-              })();
-            </script>
+          <div class="pricing-actions">
+            <div class="pricing-deadline">Fecha límite: <strong>23 de octubre de 2025</strong></div>
           </div>
 
         </div>
@@ -240,13 +227,13 @@
         <h2 id="testimonios-title" class="section-title">Testimoniales</h2>
         <div class="testimonials">
           <div class="testimonial">
-            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#e6eefc;display:flex;align-items:center;justify-content:center;color:var(--blue);font-weight:800">AL</div><div><strong>Alejandro, CEO</strong><div style="color:var(--muted);font-size:13px">"Reduje reuniones improductivas un 40% y recuperé horas estratégicas cada semana."</div></div></div>
+            <div class="testimonial-inner"><div class="avatar-al">AL</div><div><strong>Alejandro, CEO</strong><div class="muted-text-small">"Reduje reuniones improductivas un 40% y recuperé horas estratégicas cada semana."</div></div></div>
           </div>
           <div class="testimonial">
-            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#fff4db;display:flex;align-items:center;justify-content:center;color:#9b6a00;font-weight:800">MB</div><div><strong>María, CFO</strong><div style="color:var(--muted);font-size:13px">"Implementamos el roadmap y mejoramos la calidad de decisión financiera en 30 días."</div></div></div>
+            <div class="testimonial-inner"><div class="avatar-mb">MB</div><div><strong>María, CFO</strong><div class="muted-text-small">"Implementamos el roadmap y mejoramos la calidad de decisión financiera en 30 días."</div></div></div>
           </div>
           <div class="testimonial">
-            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#eef7ee;display:flex;align-items:center;justify-content:center;color:#0f6a2d;font-weight:800">JR</div><div><strong>Juan, VP Operaciones</strong><div style="color:var(--muted);font-size:13px">"Equipo más enfocado y menor rotación gracias a prácticas de resiliencia."</div></div></div>
+            <div class="testimonial-inner"><div class="avatar-jr">JR</div><div><strong>Juan, VP Operaciones</strong><div class="muted-text-small">"Equipo más enfocado y menor rotación gracias a prácticas de resiliencia."</div></div></div>
           </div>
         </div>
       </section>
@@ -254,19 +241,19 @@
       <section class="section" id="faq" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title">Preguntas frecuentes</h2>
         <div class="faq-list">
-          <div class="faq-item"><strong>¿A quién está dirigido?</strong><div style="color:var(--muted)">Ejecutivos y líderes con responsabilidad estratégica que buscan resultados rápidos y medibles.</div></div>
-          <div class="faq-item"><strong>¿Qué soporte incluye?</strong><div style="color:var(--muted)">Materiales descargables, plantillas y una hoja de ruta de implementación.</div></div>
-          <div class="faq-item"><strong>¿Hay garantía?</strong><div style="color:var(--muted)">Garantía de devolución de 14 días si no ves valor aplicado.</div></div>
+          <div class="faq-item"><strong>¿A quién está dirigido?</strong><div class="muted-text">Ejecutivos y líderes con responsabilidad estratégica que buscan resultados rápidos y medibles.</div></div>
+          <div class="faq-item"><strong>¿Qué soporte incluye?</strong><div class="muted-text">Materiales descargables, plantillas y una hoja de ruta de implementación.</div></div>
+          <div class="faq-item"><strong>¿Hay garantía?</strong><div class="muted-text">Garantía de devolución de 14 días si no ves valor aplicado.</div></div>
         </div>
       </section>
 
       <section class="section" aria-labelledby="newsletter-title">
         <h2 id="newsletter-title" class="section-title">Recibe una muestra gratis</h2>
-        <p style="color:var(--muted)">Déjanos tu email y te enviamos el primer episodio y una checklist ejecutiva.</p>
+        <p class="muted-text">Déjanos tu email y te enviamos el primer episodio y una checklist ejecutiva.</p>
         <form id="newsletter" class="newsletter" onsubmit="return false">
           <input class="input" type="email" id="email" placeholder="tu@empresa.com" required />
           <button class="btn btn-primary" id="subscribe">Enviar</button>
-          <div id="subscribe-msg" style="width:100%;color:var(--muted);font-size:13px"></div>
+          <div id="subscribe-msg" class="muted-text-small"></div>
         </form>
       </section>
 
@@ -290,10 +277,8 @@
       const emailInput = document.getElementById('email');
       const msg = document.getElementById('subscribe-msg');
       const reserveBtn = document.getElementById('reserve-now');
-      const secureBtn = document.getElementById('secure-pioneer');
 
-      if(reserveBtn){reserveBtn.addEventListener('click', ()=>{document.getElementById('pricing').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const payArea=document.getElementById('pioneer-paypal-area');if(payArea)payArea.scrollIntoView({behavior:'smooth'})},300)})}
-      if(secureBtn){secureBtn.addEventListener('click', ()=>{document.getElementById('pioneer-paypal-area').scrollIntoView({behavior:'smooth'})})}
+      if(reserveBtn){reserveBtn.addEventListener('click', ()=>{ location.href = '/checkout?plan=pioneros&amount=29'; })}
 
       subscribeForm.addEventListener('submit', async (e)=>{
         e.preventDefault();
