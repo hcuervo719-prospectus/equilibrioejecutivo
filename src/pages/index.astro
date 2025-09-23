@@ -26,6 +26,9 @@
         }
       }catch(e){/* ignore in environments where customElements not available */}
     </script>
+
+    <!-- PayPal SDK (for hosted buttons) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=BAATYrZqOfTQ0RLR0jkKZF2yvIJmyfld8IBBqqhFF6oAa-CpkXbrqjKyZpblietfhlH6ECnzwVRjsld_VA&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
     <style>
       :root{
         --blue:#1B365D;
@@ -173,8 +176,23 @@
             </div>
             <p style="color:var(--muted)">Acceso completo a los 6 episodios + materiales descargables. Precio exclusivo para primeros inscritos.</p>
             <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-              <button class="btn btn-primary pay-button" data-provider="paypal" data-amount="29">Pagar con PayPal</button>
-              <button class="btn btn-primary pay-button" data-provider="mercadopago" data-amount="29">Pagar con Mercado Pago</button>
+              <div id="paypal-container-HTRDZXWEBFE9S"></div>
+              <script>
+                (function renderPaypal29(){
+                  const id = 'paypal-container-HTRDZXWEBFE9S';
+                  const hostedId = 'HTRDZXWEBFE9S';
+                  function render(){
+                    if(window.paypal && paypal.HostedButtons){
+                      paypal.HostedButtons({ hostedButtonId: hostedId }).render('#'+id);
+                      return true;
+                    }
+                    return false;
+                  }
+                  if(!render()){
+                    const i = setInterval(()=>{ if(render()) clearInterval(i); }, 250);
+                  }
+                })();
+              </script>
             </div>
           </div>
 
@@ -188,8 +206,23 @@
             </div>
             <p style="color:var(--muted)">Incluye todo el contenido. Mejor opción para equipos y compras posteriores.</p>
             <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-              <button class="btn btn-primary pay-button" data-provider="paypal" data-amount="49">Pagar con PayPal</button>
-              <button class="btn btn-primary pay-button" data-provider="mercadopago" data-amount="49">Pagar con Mercado Pago</button>
+              <div id="paypal-container-HTRDZXWEBFE9S-49"></div>
+              <script>
+                (function renderPaypal49(){
+                  const id = 'paypal-container-HTRDZXWEBFE9S-49';
+                  const hostedId = 'HTRDZXWEBFE9S';
+                  function render(){
+                    if(window.paypal && paypal.HostedButtons){
+                      paypal.HostedButtons({ hostedButtonId: hostedId }).render('#'+id);
+                      return true;
+                    }
+                    return false;
+                  }
+                  if(!render()){
+                    const i = setInterval(()=>{ if(render()) clearInterval(i); }, 250);
+                  }
+                })();
+              </script>
             </div>
           </div>
         </div>
@@ -213,7 +246,7 @@
       <section class="section" id="faq" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title">Preguntas frecuentes</h2>
         <div class="faq-list">
-          <div class="faq-item"><strong>¿A quién está dirigido?</strong><div style="color:var(--muted)">Ejecutivos y líderes con responsabilidad estrat��gica que buscan resultados rápidos y medibles.</div></div>
+          <div class="faq-item"><strong>¿A quién está dirigido?</strong><div style="color:var(--muted)">Ejecutivos y líderes con responsabilidad estratégica que buscan resultados rápidos y medibles.</div></div>
           <div class="faq-item"><strong>¿Qué soporte incluye?</strong><div style="color:var(--muted)">Materiales descargables, plantillas y una hoja de ruta de implementación.</div></div>
           <div class="faq-item"><strong>¿Hay garantía?</strong><div style="color:var(--muted)">Garantía de devolución de 14 días si no ves valor aplicado.</div></div>
         </div>
@@ -262,19 +295,9 @@
         }catch(err){msg.textContent = 'Error de red. Intenta más tarde.'}
       });
 
-      document.querySelectorAll('.pay-button').forEach(btn=>{
-        btn.addEventListener('click', (e)=>{
-          const provider = btn.dataset.provider;
-          const amount = btn.dataset.amount;
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event:'initiate_payment',provider,amount});
-          if(provider==='paypal'){
-            window.open('https://www.paypal.com/pay?amount='+amount,'_blank');
-          } else if(provider==='mercadopago'){
-            window.open('https://www.mercadopago.com/checkout?amount='+amount,'_blank');
-          }
-        })
-      });
+      // Remove generic pay-button handler. Payment is handled by PayPal Hosted Buttons embedded in the pricing cards.
+      // Keep dataLayer initializer for other events
+      window.dataLayer = window.dataLayer || [];
 
       (function initAnalytics(){
         if(typeof window.GA_MEASUREMENT_ID==='string' && window.GA_MEASUREMENT_ID.length>0){
