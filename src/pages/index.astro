@@ -8,6 +8,24 @@
     <title>Equilibrio Ejecutivo — Serie de productividad para ejecutivos</title>
     <meta name="description" content="Equilibrio Ejecutivo: 6 episodios basados en neurociencia para reducir burnout y aumentar resultados. Accede hoy como Pionero." />
     <link rel="icon" href="https://cdn.builder.io/api/v1/image/assets%2Fb7400011ae9a4ecca8c90d62243bba6c%2F8d3ca25809624cf291b077b96969c335?format=webp&width=800" />
+    <script>
+      // Patch astro-dev-toolbar definition to avoid runtime errors in dev when apps may be undefined
+      try{
+        const origDefine = customElements.define.bind(customElements);
+        customElements.define = function(name, constructor){
+          if(name === 'astro-dev-toolbar'){
+            const Patched = class extends constructor {
+              getAppTemplate(app){
+                if(!app) return '';
+                try{ return super.getAppTemplate(app);}catch(e){return ''}
+              }
+            };
+            return origDefine(name, Patched);
+          }
+          return origDefine(name, constructor);
+        }
+      }catch(e){/* ignore in environments where customElements not available */}
+    </script>
     <style>
       :root{
         --blue:#1B365D;
@@ -187,7 +205,7 @@
             <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#fff4db;display:flex;align-items:center;justify-content:center;color:#9b6a00;font-weight:800">MB</div><div><strong>María, CFO</strong><div style="color:var(--muted);font-size:13px">"Implementamos el roadmap y mejoramos la calidad de decisión financiera en 30 días."</div></div></div>
           </div>
           <div class="testimonial">
-            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#eef7ee;display:flex;align-items:center;justify-content:center;color:#0f6a2d;font-weight:800">JR</div><div><strong>Juan, VP Operaciones</strong><div style="color:var(--muted);font-size:13px">"Equipo más enfocado y menor rotaci��n gracias a prácticas de resiliencia."</div></div></div>
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#eef7ee;display:flex;align-items:center;justify-content:center;color:#0f6a2d;font-weight:800">JR</div><div><strong>Juan, VP Operaciones</strong><div style="color:var(--muted);font-size:13px">"Equipo más enfocado y menor rotación gracias a prácticas de resiliencia."</div></div></div>
           </div>
         </div>
       </section>
@@ -195,7 +213,7 @@
       <section class="section" id="faq" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title">Preguntas frecuentes</h2>
         <div class="faq-list">
-          <div class="faq-item"><strong>¿A quién está dirigido?</strong><div style="color:var(--muted)">Ejecutivos y líderes con responsabilidad estratégica que buscan resultados rápidos y medibles.</div></div>
+          <div class="faq-item"><strong>¿A quién está dirigido?</strong><div style="color:var(--muted)">Ejecutivos y líderes con responsabilidad estrat��gica que buscan resultados rápidos y medibles.</div></div>
           <div class="faq-item"><strong>¿Qué soporte incluye?</strong><div style="color:var(--muted)">Materiales descargables, plantillas y una hoja de ruta de implementación.</div></div>
           <div class="faq-item"><strong>¿Hay garantía?</strong><div style="color:var(--muted)">Garantía de devolución de 14 días si no ves valor aplicado.</div></div>
         </div>
