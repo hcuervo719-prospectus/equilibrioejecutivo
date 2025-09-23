@@ -48,8 +48,15 @@
 
       <main>
         <section class="card">
-          <h1 class="success">¡Reserva Confirmada!</h1>
-          <p class="small">Te has unido como <strong>Pionero de Equilibrio Ejecutivo</strong></p>
+          <h1 class="success">¡Pago Procesado Exitosamente!</h1>
+          <p class="small">Has adquirido acceso completo a <strong>Equilibrio Ejecutivo</strong></p>
+
+          <div style="margin-top:12px">
+            <div><strong>Plan:</strong> <span id="plan">-</span></div>
+            <div><strong>Monto:</strong> <span id="amount">-</span></div>
+            <div><strong>Proveedor:</strong> <span id="provider">-</span></div>
+            <div><strong>ID de orden:</strong> <span id="order">-</span></div>
+          </div>
 
           <div class="timeline-info" style="margin-top:12px">
             <h3>Fechas importantes:</h3>
@@ -64,6 +71,20 @@
           <p class="small">1. Recibirás email de confirmación con tu número de reserva</p>
           <p class="small">2. Te notificaremos 48 horas antes del estreno</p>
           <p class="small">3. El 23 de octubre recibirás tu enlace de acceso</p>
+
+          <hr style="margin:16px 0" />
+
+          <form name="datos-cliente" method="POST" data-netlify="true" netlify>
+            <input type="hidden" name="form-name" value="datos-cliente" />
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label>Nombre completo<input class="input" type="text" name="nombre" required /></label>
+              <label>Correo electrónico<input class="input" type="email" name="email" required /></label>
+              <label>Empresa (opcional)<input class="input" type="text" name="empresa" /></label>
+              <label>Teléfono (opcional)<input class="input" type="tel" name="telefono" /></label>
+              <label>Comentarios adicionales<textarea class="input" name="comentarios" rows="3"></textarea></label>
+              <button class="btn btn-primary" type="submit">Enviar mis datos</button>
+            </div>
+          </form>
 
           <div style="margin-top:12px;display:flex;gap:10px">
             <button class="btn" onclick="location.href='/episodios'">Ver episodios</button>
