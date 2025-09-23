@@ -1,0 +1,76 @@
+---
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Confirmación — Equilibrio Ejecutivo</title>
+    <meta name="description" content="Confirmación de compra de Equilibrio Ejecutivo. Gracias por tu compra." />
+    <style>
+      :root{--blue:#1B365D;--gold:#F4D03F;--muted:#6B7280;--bg:#ffffff;--card:#f7f8fb;--text:#0f1724}
+      *{box-sizing:border-box}
+      body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text)}
+      .container{max-width:720px;margin:0 auto;padding:20px}
+      header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+      .logo-img{width:44px;height:44px;border-radius:8px}
+      .card{background:linear-gradient(180deg,#fff,var(--card));padding:18px;border-radius:12px}
+      .success{color:var(--blue);font-weight:800}
+      .small{color:var(--muted);font-size:13px}
+      footer{margin-top:24px;padding:18px;border-radius:10px;background:#0b1b33;color:#f6f7fa}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div style="display:flex;align-items:center;gap:12px">
+          <img class="logo-img" src="https://cdn.builder.io/api/v1/image/assets%2Fb7400011ae9a4ecca8c90d62243bba6c%2Fed902ad33ece4df682caa88ec5080685?format=webp&width=800" alt="Prospectus" />
+          <div style="font-weight:700;color:var(--blue)">Equilibrio Ejecutivo</div>
+        </div>
+        <nav>
+          <button onclick="location.href='/'">Inicio</button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="card">
+          <h1 class="success">Gracias por tu compra</h1>
+          <p class="small">Tu transacción se ha completado correctamente. A continuación los detalles.</p>
+
+          <div style="margin-top:12px">
+            <div><strong>Plan:</strong> <span id="plan">-</span></div>
+            <div><strong>Monto:</strong> <span id="amount">-</span></div>
+            <div><strong>Proveedor:</strong> <span id="provider">-</span></div>
+            <div><strong>ID de orden:</strong> <span id="order">-</span></div>
+          </div>
+
+          <p style="margin-top:12px;color:var(--muted);">En breve recibirás un correo con el acceso y los materiales. Si no llega, revisa la carpeta de spam o contáctanos.</p>
+
+          <div style="margin-top:12px;display:flex;gap:10px">
+            <button class="btn" onclick="location.href='/episodios'">Ver episodios</button>
+            <button class="btn btn-primary" onclick="location.href='/'">Volver al inicio</button>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="font-weight:800">Garantía de satisfacción 14 días</div>
+          <div style="font-size:13px;color:#cbd5e1">© Equilibrio Ejecutivo</div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module">
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById('plan').textContent = params.get('plan') || '-';
+      document.getElementById('amount').textContent = params.get('amount') ? ('$' + params.get('amount') + ' USD') : '-';
+      document.getElementById('provider').textContent = params.get('provider') || '-';
+      document.getElementById('order').textContent = params.get('order') || (Math.random().toString(36).slice(2,9).toUpperCase());
+
+      // Analytics event
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:'purchase_complete',plan:params.get('plan'),amount:params.get('amount'),order:params.get('order')});
+    </script>
+  </body>
+</html>
