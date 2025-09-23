@@ -111,6 +111,20 @@
       // Analytics event
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({event:'purchase_complete',plan:params.get('plan'),amount:params.get('amount'),order:params.get('order')});
+
+      // Netlify form: when form is submitted, append order details as hidden fields
+      const form = document.querySelector('form[name="datos-cliente"]');
+      if(form){
+        const appendIfMissing = (name,value)=>{
+          if(!form.querySelector(`[name="${name}"]`)){
+            const inp = document.createElement('input'); inp.type='hidden'; inp.name=name; inp.value=value; form.appendChild(inp);
+          }
+        }
+        appendIfMissing('plan', params.get('plan') || '');
+        appendIfMissing('amount', params.get('amount') || '');
+        appendIfMissing('provider', params.get('provider') || '');
+        appendIfMissing('order', params.get('order') || '');
+      }
     </script>
   </body>
 </html>
