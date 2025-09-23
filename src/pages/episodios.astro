@@ -5,42 +5,39 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Episodios — Equilibrio Ejecutivo</title>
-    <meta name="description" content="Detalle de los 6 episodios de Equilibrio Ejecutivo: objetivos, duración y resultados esperados." />
-    <script>
-      try{
-        const origDefine = customElements.define.bind(customElements);
-        customElements.define = function(name, constructor){
-          if(name === 'astro-dev-toolbar'){
-            const Patched = class extends constructor {
-              getAppTemplate(app){ if(!app) return ''; try{ return super.getAppTemplate(app);}catch(e){return ''} }
-            };
-            return origDefine(name, Patched);
-          }
-          return origDefine(name, constructor);
-        }
-      }catch(e){}
-    </script>
+    <title>Contenido de la serie — Equilibrio Ejecutivo</title>
+    <meta name="description" content="Detalle de los 6 episodios de Equilibrio Ejecutivo: duración, objetivos y takeaways." />
     <style>
       :root{--blue:#1B365D;--gold:#F4D03F;--muted:#6B7280;--bg:#ffffff;--card:#f7f8fb;--text:#0f1724}
       *{box-sizing:border-box}
       body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
       .container{max-width:980px;margin:0 auto;padding:20px}
-      header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+      header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
       .brand{display:flex;align-items:center;gap:12px}
       .logo-img{width:44px;height:44px;border-radius:8px;object-fit:cover}
       .site-title{font-weight:700;color:var(--blue)}
-      h1{font-size:22px;margin:6px 0}
-      .episodes{display:flex;flex-direction:column;gap:12px}
-      .episode{background:linear-gradient(180deg,#fff,var(--card));padding:14px;border-radius:10px;display:flex;gap:12px;align-items:flex-start}
-      .idx{width:44px;height:44px;border-radius:8px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
-      .meta{color:var(--muted);font-size:13px}
-      .cta-row{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
-      .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
-      .btn-primary{background:var(--gold);color:var(--blue)}
-      .btn-outline{background:transparent;border:1px solid rgba(27,54,93,0.08);color:var(--blue)}
-      footer{margin-top:24px;padding:18px;border-radius:10px;background:#0b1b33;color:#f6f7fa}
-      @media(min-width:900px){h1{font-size:28px}.episodes{flex-direction:row;flex-wrap:wrap}.episode{flex:1}}
+
+      .episodios-container{display:flex;flex-direction:column;gap:18px}
+      h1{font-size:26px;margin:0;color:var(--blue)}
+      .subtitle{color:var(--muted);margin:0}
+
+      .episodio-card{background:linear-gradient(180deg,#fff,var(--card));padding:16px;border-radius:12px;border:1px solid rgba(11,33,62,0.04)}
+      .episodio-card.locked{opacity:0.8}
+      .episodio-card .numero{display:inline-block;background:var(--blue);color:#fff;padding:8px 10px;border-radius:8px;font-weight:800;margin-bottom:8px}
+      .episodio-card h3{margin:6px 0 4px}
+      .duracion{color:var(--muted);font-size:13px;margin:0 0 8px}
+      .descripcion{margin:0 0 8px;color:var(--muted)}
+      .takeaways h4{margin:8px 0 6px}
+      .takeaways ul{margin:0 0 0 18px}
+
+      .cta-section{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+      .btn-primary{background:var(--gold);color:var(--blue);padding:10px 14px;border-radius:8px;border:0;font-weight:800}
+      .guarantee{color:var(--muted);font-size:13px}
+
+      @media(min-width:900px){
+        .episodios-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+        .cta-section{flex-direction:row;align-items:center}
+      }
     </style>
   </head>
   <body>
@@ -51,78 +48,122 @@
           <div class="site-title">Equilibrio Ejecutivo</div>
         </div>
         <nav>
-          <button class="btn btn-outline" onclick="location.href='/'">Inicio</button>
+          <a class="btn-outline" href="/">Inicio</a>
+          <a class="btn-outline" href="#contenido">Contenido</a>
         </nav>
       </header>
 
       <main>
-        <h1>Los 6 episodios — Qué esperar</h1>
-        <p class="meta">210 minutos en total — cada episodio incluye plantillas, ejercicios y un plan de implementación.</p>
+        <section class="episodios-container" id="contenido">
+          <h1>Los 6 Episodios de Equilibrio Ejecutivo</h1>
+          <p class="subtitle">210 minutos de transformación científicamente estructurada</p>
 
-        <section class="episodes" aria-label="Episodios">
-          <article class="episode">
-            <div class="idx">1</div>
-            <div>
-              <strong>Diagnóstico ejecutivo</strong>
-              <div class="meta">Identifica pérdidas de tiempo y oportunidades de mejora — 30 min</div>
-            </div>
-          </article>
+          <div class="episodios-grid">
 
-          <article class="episode">
-            <div class="idx">2</div>
-            <div>
-              <strong>Gestión de atención</strong>
-              <div class="meta">Estrategias para priorizar y tomar decisiones críticas — 35 min</div>
+            <div class="episodio-card">
+              <span class="numero">01</span>
+              <h3>Diagnóstico Ejecutivo</h3>
+              <p class="duracion">35 minutos</p>
+              <p class="descripcion">Identifica pérdidas de tiempo y puntos clave de intervención. Assessment personalizado de tu estado actual.</p>
+              <div class="takeaways">
+                <h4>Aprenderás:</h4>
+                <ul>
+                  <li>Identificar tus 3 mayores drenajes de energía</li>
+                  <li>Medir tu nivel actual de productividad emocional</li>
+                  <li>Crear tu baseline para medir progreso</li>
+                </ul>
+              </div>
             </div>
-          </article>
 
-          <article class="episode">
-            <div class="idx">3</div>
-            <div>
-              <strong>Reestructuración de reuniones</strong>
-              <div class="meta">Diseña reuniones productivas con resultados medibles — 30 min</div>
+            <div class="episodio-card">
+              <span class="numero">02</span>
+              <h3>Gestión de Atención</h3>
+              <p class="duracion">35 minutos</p>
+              <p class="descripcion">Técnicas para enfocar toma de decisiones críticas sin fatiga mental.</p>
+              <div class="takeaways">
+                <h4>Aprenderás:</h4>
+                <ul>
+                  <li>Protocolo de Deep Work adaptado a ejecutivos</li>
+                  <li>Arquitectura anti-distracción para tu entorno</li>
+                  <li>4 modos de concentración según tipo de tarea</li>
+                </ul>
+              </div>
             </div>
-          </article>
 
-          <article class="episode">
-            <div class="idx">4</div>
-            <div>
-              <strong>Líderes resilientes</strong>
-              <div class="meta">Técnicas para mantener rendimiento bajo presión — 35 min</div>
+            <div class="episodio-card">
+              <span class="numero">03</span>
+              <h3>Reestructuración de Reuniones</h3>
+              <p class="duracion">35 minutos</p>
+              <p class="descripcion">Convierte reuniones en resultados medibles sin agotar tu equipo.</p>
+              <div class="takeaways">
+                <h4>Aprenderás:</h4>
+                <ul>
+                  <li>Reducir reuniones 40% sin perder efectividad</li>
+                  <li>Estructura de reuniones de alto ROI</li>
+                  <li>Delegación efectiva que libera tu tiempo</li>
+                </ul>
+              </div>
             </div>
-          </article>
 
-          <article class="episode">
-            <div class="idx">5</div>
-            <div>
-              <strong>Delegación efectiva</strong>
-              <div class="meta">Aumenta la capacidad del equipo sin microgestión — 40 min</div>
+            <div class="episodio-card">
+              <span class="numero">04</span>
+              <h3>Líderes Resilientes</h3>
+              <p class="duracion">35 minutos</p>
+              <p class="descripcion">Estrategias para mantener rendimiento bajo presión extrema.</p>
+              <div class="takeaways">
+                <h4>Aprenderás:</h4>
+                <ul>
+                  <li>Reframe de estrés: de amenaza a desafío</li>
+                  <li>Protocolo de recuperación basado en HRV</li>
+                  <li>Mantener claridad decisional en crisis</li>
+                </ul>
+              </div>
             </div>
-          </article>
 
-          <article class="episode">
-            <div class="idx">6</div>
-            <div>
-              <strong>Roadmap de implementación</strong>
-              <div class="meta">Plan de 30/60/90 días para generar ROI — 40 min</div>
+            <div class="episodio-card">
+              <span class="numero">05</span>
+              <h3>Delegación Efectiva</h3>
+              <p class="duracion">35 minutos</p>
+              <p class="descripcion">Aumenta capacidad de equipo sin microgestión que agota.</p>
+              <div class="takeaways">
+                <h4>Aprenderás:</h4>
+                <ul>
+                  <li>Hierarchy decisional: qué delegar vs qué retener</li>
+                  <li>Sistema de follow-up que no requiere tu tiempo</li>
+                  <li>Empoderar equipo sin perder control estratégico</li>
+                </ul>
+              </div>
             </div>
-          </article>
+
+            <div class="episodio-card locked">
+              <span class="numero">06</span>
+              <h3>Roadmap de Implementación</h3>
+              <p class="duracion">35 minutos</p>
+              <p class="descripcion">Plan 30/60/90 días para generar ROI medible en productividad.</p>
+              <div class="takeaways">
+                <h4>Aprenderás:</h4>
+                <ul>
+                  <li>Sistema de rutinas matutinas optimizadas</li>
+                  <li>Ciclos de review semanal/mensual/trimestral</li>
+                  <li>Métricas de bienestar + productividad integradas</li>
+                </ul>
+              </div>
+              <p class="locked-note">🔒 Disponible tras completar episodios 1-5</p>
+            </div>
+
+          </div>
+
+          <div class="cta-section">
+            <h3>¿Listo para transformar tu productividad?</h3>
+            <a href="/checkout" class="btn-primary">Reservar acceso pionero - $29 USD</a>
+            <p class="guarantee">Garantía 14 días - Si no ves resultados, 100% reembolso</p>
+          </div>
+
         </section>
-
-        <div class="cta-row">
-          <button class="btn btn-primary" onclick="location.href='/checkout?plan=pioneros&amount=29'">Reserva tu cupo — Pioneros $29</button>
-          <button class="btn btn-outline" onclick="location.href='/checkout?plan=estandar&amount=49'">Reserva tu cupo — Estándar $49</button>
-        </div>
       </main>
 
-      <footer>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <div>
-            <div style="font-weight:800">Garantía de satisfacción 14 días</div>
-            <div style="color:#cbd5e1;font-size:13px">Si no obtienes valor implementable, devolvemos tu dinero.</div>
-          </div>
-          <div style="font-size:13px;color:#cbd5e1">© Prospectus Studio</div>
-        </div>
+      <footer style="margin-top:32px">
+        <div style="font-size:13px;color:#6b7280">© Prospectus Studio</div>
       </footer>
     </div>
   </body>
