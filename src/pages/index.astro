@@ -114,18 +114,21 @@
 
       .launch-banner{background:linear-gradient(90deg,var(--gold),#eecf5a);color:var(--blue);padding:12px;border-radius:10px;text-align:center;font-weight:800;margin:10px 0}
 .launch-banner{background:linear-gradient(90deg,var(--gold),#eecf5a);color:var(--blue);padding:12px;border-radius:10px;text-align:center;font-weight:800;margin:10px 0}
-      .hero-media{width:220px;display:flex;flex-direction:column;gap:10px;align-items:center}
-      .hero-card{width:220px;height:140px;border-radius:10px;background:linear-gradient(180deg,#eaf1ff,#fff);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(27,54,93,0.06)}
-      .hero-card img,.hero-image{width:100%;height:auto;object-fit:cover;border-radius:10px}
-      .hero-large{position:relative;border-radius:12px;overflow:hidden}
-      .hero-actions{display:flex;flex-direction:row;gap:12px;align-items:center;justify-content:center;margin-top:12px}
+      /* Hero layout for vertical image */
+      .hero-media{display:flex;justify-content:center;align-items:flex-start}
+      .hero-card{width:100%;max-width:480px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfcfe);box-shadow:0 8px 18px rgba(27,54,93,0.06);overflow:hidden}
+      .hero-card img,.hero-image{width:100%;height:720px;object-fit:cover;display:block}
+      .hero-large{position:relative}
+
+      .hero-actions{display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:12px}
       .hero-actions .small-indicator{background:rgba(255,255,255,0.95);padding:6px 10px;border-radius:999px;color:var(--blue);font-weight:700}
       .social-proof .section{padding:10px 0;margin-top:10px}
 
       @media(min-width:900px){
-        .hero-inner{flex-direction:row;align-items:center;gap:20px}
-        .hero-media{flex:1}
-        .hero-actions{flex-basis:320px;flex-direction:column;align-items:flex-start;margin-top:0}
+        .hero-inner{flex-direction:row;align-items:flex-start;gap:28px}
+        .hero-media{flex:0 0 480px}
+        .hero-card img,.hero-image{height:780px}
+        .hero-actions{flex:1;align-items:flex-start;margin-top:0}
         .hero-actions .small-indicator{margin-top:6px}
       }
     </style>
@@ -258,7 +261,7 @@
 
       <section class="section" aria-labelledby="newsletter-title">
         <h2 id="newsletter-title" class="section-title">Recibe una muestra gratis</h2>
-        <p style="color:var(--muted)">Déjanos tu email y te enviamos el primer episodio y una checklist ejecutiva.</p>
+        <p style="color:var(--muted)">D��janos tu email y te enviamos el primer episodio y una checklist ejecutiva.</p>
         <form id="newsletter" class="newsletter" onsubmit="return false">
           <input class="input" type="email" id="email" placeholder="tu@empresa.com" required />
           <button class="btn btn-primary" id="subscribe">Enviar</button>
