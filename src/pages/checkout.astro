@@ -7,6 +7,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Checkout — Equilibrio Ejecutivo</title>
     <meta name="description" content="Proceso de pago para Equilibrio Ejecutivo. Selecciona tu plan y completa el pago." />
+    <script>
+      try{
+        const origDefine = customElements.define.bind(customElements);
+        customElements.define = function(name, constructor){
+          if(name === 'astro-dev-toolbar'){
+            const Patched = class extends constructor {
+              getAppTemplate(app){ if(!app) return ''; try{ return super.getAppTemplate(app);}catch(e){return ''} }
+            };
+            return origDefine(name, Patched);
+          }
+          return origDefine(name, constructor);
+        }
+      }catch(e){}
+    </script>
     <style>
       :root{--blue:#1B365D;--gold:#F4D03F;--muted:#6B7280;--bg:#ffffff;--card:#f7f8fb;--text:#0f1724}
       *{box-sizing:border-box}
