@@ -113,10 +113,14 @@
       }
 
       .launch-banner{background:linear-gradient(90deg,var(--gold),#eecf5a);color:var(--blue);padding:12px;border-radius:10px;text-align:center;font-weight:800;margin:10px 0}
+.launch-banner{background:linear-gradient(90deg,var(--gold),#eecf5a);color:var(--blue);padding:12px;border-radius:10px;text-align:center;font-weight:800;margin:10px 0}
       .hero-media{width:220px;display:flex;flex-direction:column;gap:10px;align-items:center}
       .hero-card{width:220px;height:140px;border-radius:10px;background:linear-gradient(180deg,#eaf1ff,#fff);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(27,54,93,0.06)}
-      .hero-card img,.hero-image{width:220px;height:140px;object-fit:cover;border-radius:10px}
-      .hero-caption{text-align:center;color:var(--muted);font-size:13px}
+      .hero-card img,.hero-image{width:100%;height:auto;object-fit:cover;border-radius:10px}
+      .hero-large{position:relative;border-radius:12px;overflow:hidden}
+      .hero-overlay{position:absolute;left:0;right:0;bottom:20px;display:flex;flex-direction:column;align-items:center;gap:8px}
+      .hero-overlay .small-indicator{background:rgba(255,255,255,0.95);padding:6px 10px;border-radius:999px;color:var(--blue);font-weight:700}
+      .social-proof .section{padding:10px 0;margin-top:10px}
     </style>
   </head>
   <body>
@@ -135,26 +139,21 @@
 
       <section class="hero" aria-labelledby="hero-heading">
         <div class="hero-inner">
-          <div style="flex:1;min-width:220px">
-            <h1 id="hero-heading" class="headline">Menos horas. Más impacto: supera el burnout ejecutivo con estrategias basadas en neurociencia</h1>
-            <p class="lead">Serie de 6 episodios diseñados para ejecutivos que necesitan resultados medibles: 210 minutos de herramientas prácticas respaldadas por psicología organizacional.</p>
-            <div class="metrics">
-              <div class="pill">6 episodios • 210 min</div>
-              <div class="pill">Basado en neurociencia</div>
-              <div class="pill">Herramientas aplicables desde el día 1</div>
+          <div class="hero-only">
+            <div class="hero-card hero-large">
+              <img class="hero-image" src="https://cdn.builder.io/api/v1/image/assets%2Fb7400011ae9a4ecca8c90d62243bba6c%2F8d8db316d2e84dcfa8d094d3bbe54dbc?format=webp&width=1600" alt="Hero image: preventa Equilibrio Ejecutivo" />
+              <div class="hero-overlay">
+                <button class="btn btn-primary" id="reserve-now">Reserva tu cupo - Pioneros $29</button>
+                <div class="small-indicator">50 cupos restantes</div>
+              </div>
             </div>
-            <div class="cta-row">
-              <button class="btn btn-primary" id="buy-now">Reserva tu cupo — Pioneros $29</button>
-              <button class="btn btn-outline" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">Preguntas frecuentes</button>
-            </div>
-            <p style="margin-top:8px;color:var(--muted);font-size:13px">Plazas Pioneros limitadas — precio especial por tiempo limitado.</p>
           </div>
-          <div class="hero-media">
-            <div class="hero-card">
-              <img class="hero-image" src="https://cdn.builder.io/api/v1/image/assets%2Fb7400011ae9a4ecca8c90d62243bba6c%2F8d8db316d2e84dcfa8d094d3bbe54dbc?format=webp&width=1200" alt="Ejecutivo caminando hacia la transformación" />
-            </div>
-            <div class="hero-caption">Incluye recursos descargables y hoja de ruta para aplicar aprendizajes.</div>
-          </div>
+        </div>
+      </section>
+
+      <section class="social-proof" aria-label="Social proof">
+        <div class="section">
+          <div style="text-align:center;font-weight:800;color:var(--blue);font-size:16px">Validado por 500+ ejecutivos que incrementaron productividad 40%</div>
         </div>
       </section>
 
@@ -182,66 +181,45 @@
 
       <section class="section" id="pricing" aria-labelledby="pricing-title">
         <h2 id="pricing-title" class="section-title">Precios</h2>
-        <div class="pricing-cards">
-          <div class="card">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <div>
-                <div class="price">$29 <span style="font-size:14px;font-weight:700;color:var(--muted)">USD</span></div>
-                <div class="price-sub">Pioneros — cupos limitados</div>
-              </div>
-              <div class="badge-limited">PIONEROS</div>
+        <div class="card" style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+            <div>
+              <div style="font-size:14px;color:var(--muted)">Pioneros (Preventa)</div>
+              <div class="price">$29 <span style="font-size:14px;font-weight:700;color:var(--muted)">USD</span></div>
             </div>
-            <p style="color:var(--muted)">Acceso completo a los 6 episodios + materiales descargables. Precio exclusivo para primeros inscritos.</p>
-            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-              <div id="paypal-container-HTRDZXWEBFE9S"></div>
-              <script>
-                (function renderPaypal29(){
-                  const id = 'paypal-container-HTRDZXWEBFE9S';
-                  const hostedId = 'HTRDZXWEBFE9S';
-                  function render(){
-                    if(window.paypal && paypal.HostedButtons){
-                      paypal.HostedButtons({ hostedButtonId: hostedId }).render('#'+id);
-                      return true;
-                    }
-                    return false;
-                  }
-                  if(!render()){
-                    const i = setInterval(()=>{ if(render()) clearInterval(i); }, 250);
-                  }
-                })();
-              </script>
+            <div style="text-align:right">
+              <div style="font-size:14px;color:var(--muted)">Precio final</div>
+              <div class="price">$49 <span style="font-size:14px;font-weight:700;color:var(--muted)">USD</span></div>
             </div>
           </div>
 
-          <div class="card">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <div>
-                <div class="price">$49 <span style="font-size:14px;font-weight:700;color:var(--muted)">USD</span></div>
-                <div class="price-sub">Estándar — acceso futuro</div>
-              </div>
-              <div style="font-weight:700;color:var(--muted)">Mejor valor</div>
-            </div>
-            <p style="color:var(--muted)">Incluye todo el contenido. Mejor opción para equipos y compras posteriores.</p>
-            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-              <div id="paypal-container-HTRDZXWEBFE9S-49"></div>
-              <script>
-                (function renderPaypal49(){
-                  const id = 'paypal-container-HTRDZXWEBFE9S-49';
-                  const hostedId = 'HTRDZXWEBFE9S';
-                  function render(){
-                    if(window.paypal && paypal.HostedButtons){
-                      paypal.HostedButtons({ hostedButtonId: hostedId }).render('#'+id);
-                      return true;
-                    }
-                    return false;
-                  }
-                  if(!render()){
-                    const i = setInterval(()=>{ if(render()) clearInterval(i); }, 250);
-                  }
-                })();
-              </script>
-            </div>
+          <p style="color:var(--muted)">Acceso completo a los 6 episodios, materiales y hoja de ruta. Preventa limitada; el precio final será $49.</p>
+
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <button class="btn btn-primary" id="secure-pioneer">Asegurar acceso pionero</button>
+            <div style="color:var(--muted);font-size:13px">Fecha límite: <strong>23 de octubre de 2025</strong></div>
           </div>
+
+          <div style="margin-top:12px" id="pioneer-paypal-area">
+            <div id="paypal-container-HTRDZXWEBFE9S"></div>
+            <script>
+              (function renderPaypal29(){
+                const id = 'paypal-container-HTRDZXWEBFE9S';
+                const hostedId = 'HTRDZXWEBFE9S';
+                function render(){
+                  if(window.paypal && paypal.HostedButtons){
+                    paypal.HostedButtons({ hostedButtonId: hostedId }).render('#'+id);
+                    return true;
+                  }
+                  return false;
+                }
+                if(!render()){
+                  const i = setInterval(()=>{ if(render()) clearInterval(i); }, 250);
+                }
+              })();
+            </script>
+          </div>
+
         </div>
       </section>
 
@@ -298,7 +276,11 @@
       const subscribeForm = document.getElementById('newsletter');
       const emailInput = document.getElementById('email');
       const msg = document.getElementById('subscribe-msg');
-      document.getElementById('buy-now').addEventListener('click', ()=>{document.getElementById('pricing').scrollIntoView({behavior:'smooth'})});
+      const reserveBtn = document.getElementById('reserve-now');
+      const secureBtn = document.getElementById('secure-pioneer');
+
+      if(reserveBtn){reserveBtn.addEventListener('click', ()=>{document.getElementById('pricing').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const payArea=document.getElementById('pioneer-paypal-area');if(payArea)payArea.scrollIntoView({behavior:'smooth'})},300)})}
+      if(secureBtn){secureBtn.addEventListener('click', ()=>{document.getElementById('pioneer-paypal-area').scrollIntoView({behavior:'smooth'})})}
 
       subscribeForm.addEventListener('submit', async (e)=>{
         e.preventDefault();
@@ -312,7 +294,6 @@
         }catch(err){msg.textContent = 'Error de red. Intenta más tarde.'}
       });
 
-      // Remove generic pay-button handler. Payment is handled by PayPal Hosted Buttons embedded in the pricing cards.
       // Keep dataLayer initializer for other events
       window.dataLayer = window.dataLayer || [];
 
