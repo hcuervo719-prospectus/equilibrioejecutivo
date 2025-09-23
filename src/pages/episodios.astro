@@ -1,0 +1,115 @@
+---
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Episodios — Equilibrio Ejecutivo</title>
+    <meta name="description" content="Detalle de los 6 episodios de Equilibrio Ejecutivo: objetivos, duración y resultados esperados." />
+    <style>
+      :root{--blue:#1B365D;--gold:#F4D03F;--muted:#6B7280;--bg:#ffffff;--card:#f7f8fb;--text:#0f1724}
+      *{box-sizing:border-box}
+      body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+      .container{max-width:980px;margin:0 auto;padding:20px}
+      header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+      .brand{display:flex;align-items:center;gap:12px}
+      .logo-img{width:44px;height:44px;border-radius:8px;object-fit:cover}
+      .site-title{font-weight:700;color:var(--blue)}
+      h1{font-size:22px;margin:6px 0}
+      .episodes{display:flex;flex-direction:column;gap:12px}
+      .episode{background:linear-gradient(180deg,#fff,var(--card));padding:14px;border-radius:10px;display:flex;gap:12px;align-items:flex-start}
+      .idx{width:44px;height:44px;border-radius:8px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+      .meta{color:var(--muted);font-size:13px}
+      .cta-row{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+      .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+      .btn-primary{background:var(--gold);color:var(--blue)}
+      .btn-outline{background:transparent;border:1px solid rgba(27,54,93,0.08);color:var(--blue)}
+      footer{margin-top:24px;padding:18px;border-radius:10px;background:#0b1b33;color:#f6f7fa}
+      @media(min-width:900px){h1{font-size:28px}.episodes{flex-direction:row;flex-wrap:wrap}.episode{flex:1}}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="brand">
+          <img class="logo-img" src="https://cdn.builder.io/api/v1/image/assets%2Fb7400011ae9a4ecca8c90d62243bba6c%2Fed902ad33ece4df682caa88ec5080685?format=webp&width=800" alt="Prospectus" />
+          <div class="site-title">Equilibrio Ejecutivo</div>
+        </div>
+        <nav>
+          <button class="btn btn-outline" onclick="location.href='/'">Inicio</button>
+        </nav>
+      </header>
+
+      <main>
+        <h1>Los 6 episodios — Qué esperar</h1>
+        <p class="meta">210 minutos en total — cada episodio incluye plantillas, ejercicios y un plan de implementación.</p>
+
+        <section class="episodes" aria-label="Episodios">
+          <article class="episode">
+            <div class="idx">1</div>
+            <div>
+              <strong>Diagnóstico ejecutivo</strong>
+              <div class="meta">Identifica pérdidas de tiempo y oportunidades de mejora — 30 min</div>
+            </div>
+          </article>
+
+          <article class="episode">
+            <div class="idx">2</div>
+            <div>
+              <strong>Gestión de atención</strong>
+              <div class="meta">Estrategias para priorizar y tomar decisiones críticas — 35 min</div>
+            </div>
+          </article>
+
+          <article class="episode">
+            <div class="idx">3</div>
+            <div>
+              <strong>Reestructuración de reuniones</strong>
+              <div class="meta">Diseña reuniones productivas con resultados medibles — 30 min</div>
+            </div>
+          </article>
+
+          <article class="episode">
+            <div class="idx">4</div>
+            <div>
+              <strong>Líderes resilientes</strong>
+              <div class="meta">Técnicas para mantener rendimiento bajo presión — 35 min</div>
+            </div>
+          </article>
+
+          <article class="episode">
+            <div class="idx">5</div>
+            <div>
+              <strong>Delegación efectiva</strong>
+              <div class="meta">Aumenta la capacidad del equipo sin microgestión — 40 min</div>
+            </div>
+          </article>
+
+          <article class="episode">
+            <div class="idx">6</div>
+            <div>
+              <strong>Roadmap de implementación</strong>
+              <div class="meta">Plan de 30/60/90 días para generar ROI — 40 min</div>
+            </div>
+          </article>
+        </section>
+
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="location.href='/checkout?plan=pioneros&amount=29'">Comprar Pioneros — $29</button>
+          <button class="btn btn-outline" onclick="location.href='/checkout?plan=estandar&amount=49'">Comprar Estándar — $49</button>
+        </div>
+      </main>
+
+      <footer>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div>
+            <div style="font-weight:800">Garantía de satisfacción 14 días</div>
+            <div style="color:#cbd5e1;font-size:13px">Si no obtienes valor implementable, devolvemos tu dinero.</div>
+          </div>
+          <div style="font-size:13px;color:#cbd5e1">© Equilibrio Ejecutivo</div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
