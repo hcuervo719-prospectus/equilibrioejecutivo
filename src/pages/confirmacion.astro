@@ -142,7 +142,7 @@
       window.dataLayer.push({event:'purchase_complete',plan:params.get('plan'),amount:params.get('amount'),order:params.get('order')});
 
       // Netlify form: when form is submitted, append order details as hidden fields
-      const form = document.querySelector('form[name="datos-cliente"]');
+      const form = document.querySelector('form[name="reserva-confirmada"]');
       if(form){
         const appendIfMissing = (name,value)=>{
           if(!form.querySelector(`[name="${name}"]`)){
