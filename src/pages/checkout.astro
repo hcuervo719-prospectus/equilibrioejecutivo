@@ -21,6 +21,10 @@
         }
       }catch(e){}
     </script>
+
+    <!-- PayPal SDK (Part 1) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=BAATYrZqOfTQ0RLR0jkKZF2yvIJmyfld8IBBqqhFF6oAa-CpkXbrqjKyZpblietfhlH6ECnzwVRjsld_VA&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+
     <style>
       :root{--blue:#1B365D;--gold:#F4D03F;--muted:#6B7280;--bg:#ffffff;--card:#f7f8fb;--text:#0f1724}
       *{box-sizing:border-box}
@@ -66,7 +70,23 @@
           </div>
 
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn btn-primary pay-button" data-provider="paypal">Pagar con PayPal</button>
+            <div id="paypal-container-HTRDZXWEBFE9S"></div>
+            <script>
+              // PayPal Hosted Button (Part 2)
+              if (window.paypal && paypal.HostedButtons) {
+                paypal.HostedButtons({
+                  hostedButtonId: "HTRDZXWEBFE9S",
+                }).render("#paypal-container-HTRDZXWEBFE9S");
+              } else {
+                // SDK not loaded yet — wait and retry
+                const interval = setInterval(()=>{
+                  if(window.paypal && paypal.HostedButtons){
+                    clearInterval(interval);
+                    paypal.HostedButtons({ hostedButtonId: "HTRDZXWEBFE9S" }).render("#paypal-container-HTRDZXWEBFE9S");
+                  }
+                }, 250);
+              }
+            </script>
             <button class="btn btn-primary pay-button" data-provider="mercadopago">Pagar con Mercado Pago</button>
             <button class="btn" onclick="location.href='/'">Cancelar</button>
           </div>
