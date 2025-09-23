@@ -76,6 +76,11 @@
         .pricing-cards{flex-direction:row}
         .testimonials{flex-direction:row}
       }
+
+      .hero-media{width:220px;display:flex;flex-direction:column;gap:10px;align-items:center}
+      .hero-card{width:220px;height:140px;border-radius:10px;background:linear-gradient(180deg,#eaf1ff,#fff);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(27,54,93,0.06)}
+      .hero-card img,.hero-image{width:220px;height:140px;object-fit:cover;border-radius:10px}
+      .hero-caption{text-align:center;color:var(--muted);font-size:13px}
     </style>
   </head>
   <body>
@@ -106,14 +111,11 @@
             </div>
             <p style="margin-top:8px;color:var(--muted);font-size:13px">Plazas Pioneros limitadas — precio especial por tiempo limitado.</p>
           </div>
-          <div style="width:220px;display:flex;flex-direction:column;gap:10px;align-items:center">
-            <div style="width:220px;height:140px;border-radius:10px;background:linear-gradient(180deg,#eaf1ff, #fff);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(27,54,93,0.06);">
-              <div style="text-align:center;padding:12px">
-                <div style="font-weight:800;color:var(--blue);font-size:18px">Transformación Ejecutiva</div>
-                <div style="color:var(--muted);font-size:13px">Resultados en semanas</div>
-              </div>
+          <div class="hero-media">
+            <div class="hero-card">
+              <img class="hero-image" src="https://cdn.builder.io/api/v1/image/assets%2Fb7400011ae9a4ecca8c90d62243bba6c%2F8d8db316d2e84dcfa8d094d3bbe54dbc?format=webp&width=1200" alt="Ejecutivo caminando hacia la transformación" />
             </div>
-            <div style="text-align:center;color:var(--muted);font-size:13px">Incluye recursos descargables y hoja de ruta para aplicar aprendizajes.</div>
+            <div class="hero-caption">Incluye recursos descargables y hoja de ruta para aplicar aprendizajes.</div>
           </div>
         </div>
       </section>
@@ -185,7 +187,7 @@
             <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#fff4db;display:flex;align-items:center;justify-content:center;color:#9b6a00;font-weight:800">MB</div><div><strong>María, CFO</strong><div style="color:var(--muted);font-size:13px">"Implementamos el roadmap y mejoramos la calidad de decisión financiera en 30 días."</div></div></div>
           </div>
           <div class="testimonial">
-            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#eef7ee;display:flex;align-items:center;justify-content:center;color:#0f6a2d;font-weight:800">JR</div><div><strong>Juan, VP Operaciones</strong><div style="color:var(--muted);font-size:13px">"Equipo más enfocado y menor rotación gracias a prácticas de resiliencia."</div></div></div>
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:10px;background:#eef7ee;display:flex;align-items:center;justify-content:center;color:#0f6a2d;font-weight:800">JR</div><div><strong>Juan, VP Operaciones</strong><div style="color:var(--muted);font-size:13px">"Equipo más enfocado y menor rotaci��n gracias a prácticas de resiliencia."</div></div></div>
           </div>
         </div>
       </section>
