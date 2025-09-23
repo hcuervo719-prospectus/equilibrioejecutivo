@@ -87,7 +87,6 @@
                 }, 250);
               }
             </script>
-            <button class="btn btn-primary pay-button" data-provider="mercadopago">Pagar con Mercado Pago</button>
             <button class="btn" onclick="location.href='/'">Cancelar</button>
           </div>
 
@@ -114,20 +113,7 @@
       document.getElementById('plan-desc').textContent = plan==='estandar' ? 'Acceso completo — mejor para equipos' : 'Precio especial para primeros inscritos';
       document.getElementById('plan-price').textContent = '$' + amount;
 
-      document.querySelectorAll('.pay-button').forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          const provider = btn.dataset.provider;
-          // Analytics event
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event:'checkout_initiated',provider,plan,amount});
-
-          // Simulate opening provider and redirect to confirmation
-          const orderId = Math.random().toString(36).slice(2,9).toUpperCase();
-          const confirmUrl = `/confirmacion?plan=${encodeURIComponent(planName)}&amount=${amount}&provider=${provider}&order=${orderId}`;
-          // In real flow you'd integrate SDK and handle callbacks
-          window.open(confirmUrl, '_self');
-        });
-      });
+      // Payment is handled by PayPal Hosted Buttons embedded above; no generic pay-button handler required.
     </script>
   </body>
 </html>
