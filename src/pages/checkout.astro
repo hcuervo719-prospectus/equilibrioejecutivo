@@ -53,6 +53,10 @@
       .btn-primary{background:var(--gold);color:var(--blue)}
       .notes{color:var(--muted);font-size:13px;margin-top:8px}
       footer{margin-top:24px;padding:18px;border-radius:10px;background:#0b1b33;color:#f6f7fa}
+
+      /* PayPal container fixes: ensure button iframe has space to render horizontally */
+      .paypal-container{min-width:260px;flex:1}
+      @media(min-width:480px){.paypal-container{min-width:320px}}
     </style>
   </head>
   <body>
