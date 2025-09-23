@@ -118,9 +118,16 @@
       .hero-card{width:220px;height:140px;border-radius:10px;background:linear-gradient(180deg,#eaf1ff,#fff);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(27,54,93,0.06)}
       .hero-card img,.hero-image{width:100%;height:auto;object-fit:cover;border-radius:10px}
       .hero-large{position:relative;border-radius:12px;overflow:hidden}
-      .hero-overlay{position:absolute;left:0;right:0;bottom:20px;display:flex;flex-direction:column;align-items:center;gap:8px}
-      .hero-overlay .small-indicator{background:rgba(255,255,255,0.95);padding:6px 10px;border-radius:999px;color:var(--blue);font-weight:700}
+      .hero-actions{display:flex;flex-direction:row;gap:12px;align-items:center;justify-content:center;margin-top:12px}
+      .hero-actions .small-indicator{background:rgba(255,255,255,0.95);padding:6px 10px;border-radius:999px;color:var(--blue);font-weight:700}
       .social-proof .section{padding:10px 0;margin-top:10px}
+
+      @media(min-width:900px){
+        .hero-inner{flex-direction:row;align-items:center;gap:20px}
+        .hero-media{flex:1}
+        .hero-actions{flex-basis:320px;flex-direction:column;align-items:flex-start;margin-top:0}
+        .hero-actions .small-indicator{margin-top:6px}
+      }
     </style>
   </head>
   <body>
