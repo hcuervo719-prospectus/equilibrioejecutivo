@@ -41,6 +41,17 @@
         }catch(e){console.warn('Could not load PayPal SDK via env', e)}
       })();
     </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ER7KWWNE4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8ER7KWWNE4', { 'send_page_view': true });
+      window.GA_MEASUREMENT_ID = 'G-8ER7KWWNE4';
+    </script>
+
     <style>
       :root{
         --blue:#1B365D;
